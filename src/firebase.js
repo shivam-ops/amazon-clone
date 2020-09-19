@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCagfmJWWDn38ANjkJNz0sNQ5aKC7bTBk4",
   authDomain: "clone-861db.firebaseapp.com",
@@ -6,5 +8,12 @@ const firebaseConfig = {
   storageBucket: "clone-861db.appspot.com",
   messagingSenderId: "179275797017",
   appId: "1:179275797017:web:ac531d6b67aa328e861088",
-  measurementId: "G-NQV742R08C"
+  measurementId: "G-NQV742R08C",
 };
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+export { db, auth };
