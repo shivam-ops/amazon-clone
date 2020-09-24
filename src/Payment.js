@@ -37,6 +37,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
+  console.log("THE SECRET IS >>>>", clientSecret);
+
   const handleSubmit = async (event) => {
     // do all the fancy stripe stuff
 
@@ -56,7 +58,7 @@ function Payment() {
         setError(null);
         setProcessing(false);
 
-        history.replaceState("/orders");
+        history.replace("/orders");
       });
   };
 
