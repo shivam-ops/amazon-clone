@@ -1,7 +1,6 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-const { response } = require("express");
 const stripe = require("stripe")(
   "sk_test_51HUaasB55GJzZDkW62v7Z3W4ON6Xi4etqDdIqtlj3nmR3TcEnKyI8nugylonfkwWQbNAUgaTz2FV5OcxA4H2CGEG00xL4ZcUEO"
 );
@@ -25,6 +24,7 @@ app.post("/payments/create", async (request, response) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total, // subunits of the currency
     currency: "usd",
+    description: "Amazon Ecommerce Services",
   });
 
   // OK - Created
