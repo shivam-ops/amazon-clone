@@ -50,10 +50,35 @@ function Payment() {
       .confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
+          billing_details: {
+            address: {
+              city: "Example",
+              country: "US",
+              line1: "Example",
+              line2: null,
+              postal_code: "Example",
+              state: "Example",
+            },
+            email: "Example@Example.com",
+            name: "Example",
+            phone: "Example",
+          },
         },
+        shipping: {
+          name: "Example",
+          address: {
+            line1: "Example",
+            postal_code: "Example",
+            city: "Example",
+            state: "Example",
+            country: "US",
+          },
+        },
+        // description:`This is test`,
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = payment confirmation
+        console.log("paymentIntent>>>", paymentIntent);
         db.collection("users")
           .doc(user?.uid)
           .collection("orders")
