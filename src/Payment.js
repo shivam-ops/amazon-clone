@@ -85,7 +85,7 @@ function Payment() {
           .doc(paymentIntent.id)
           .set({
             basket: basket,
-            amout: paymentIntent.amount,
+            amount: paymentIntent.amount,
             created: paymentIntent.created,
           });
 

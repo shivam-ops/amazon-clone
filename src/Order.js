@@ -5,6 +5,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 
 function Order({ order }) {
+  console.log("this is the amount", order.data);
   return (
     <div className="order">
       <h2>Order</h2>
